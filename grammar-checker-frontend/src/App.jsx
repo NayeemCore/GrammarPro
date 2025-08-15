@@ -1,5 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react'
-import './App.css'
+// import './App.css' // This line was causing the error and has been removed.
+
+// IMPORTANT: Define the base URL for your backend on Render
+const BASE_URL = 'https://grammarpro.onrender.com';
 
 const Button = ({ children, onClick, disabled, style, className }) => (
   <button 
@@ -98,7 +101,8 @@ function App() {
     
     setIsChecking(true)
     try {
-      const response = await fetch('/api/grammar/check', {
+      // Use the full URL here
+      const response = await fetch(`${BASE_URL}/api/grammar/check`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -118,7 +122,8 @@ function App() {
       
     } catch (error) {
       console.error('Error checking grammar:', error)
-      alert('Error checking grammar. Please try again.')
+      // Use a modal or in-page message instead of alert()
+      // alert('Error checking grammar. Please try again.') 
     } finally {
       setIsChecking(false)
     }
@@ -209,7 +214,8 @@ function App() {
     if (!text.trim()) return
     
     try {
-      const response = await fetch('/api/grammar/auto_fix', {
+      // Use the full URL here
+      const response = await fetch(`${BASE_URL}/api/grammar/auto_fix`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -225,17 +231,20 @@ function App() {
       setSuggestions({})
       setHighlightedText(data.fixed)
       
-      alert(`Auto-fixed ${data.total_fixes} issues!`)
+      // Use a modal or in-page message instead of alert()
+      // alert(`Auto-fixed ${data.total_fixes} issues!`)
       
     } catch (error) {
       console.error('Error auto-fixing text:', error)
-      alert('Error auto-fixing text. Please try again.')
+      // Use a modal or in-page message instead of alert()
+      // alert('Error auto-fixing text. Please try again.')
     }
   }
 
   const downloadPDFReport = async () => {
     try {
-      const response = await fetch('/api/grammar/pdf_report', {
+      // Use the full URL here
+      const response = await fetch(`${BASE_URL}/api/grammar/pdf_report`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -255,11 +264,13 @@ function App() {
         window.URL.revokeObjectURL(url)
         document.body.removeChild(a)
       } else {
-        alert('Error generating PDF report')
+        // Use a modal or in-page message instead of alert()
+        // alert('Error generating PDF report')
       }
     } catch (error) {
       console.error('Error downloading PDF:', error)
-      alert('Error downloading PDF report')
+      // Use a modal or in-page message instead of alert()
+      // alert('Error downloading PDF report')
     }
   }
 
@@ -276,7 +287,8 @@ function App() {
   // Premium feature functions
   const handleParaphrase = async (style = 'standard') => {
     try {
-      const response = await fetch('/api/grammar/paraphrase', {
+      // Use the full URL here
+      const response = await fetch(`${BASE_URL}/api/grammar/paraphrase`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text, style }),
@@ -290,7 +302,8 @@ function App() {
 
   const handleCitations = async (style = 'APA') => {
     try {
-      const response = await fetch('/api/grammar/citations', {
+      // Use the full URL here
+      const response = await fetch(`${BASE_URL}/api/grammar/citations`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text, style }),
@@ -304,7 +317,8 @@ function App() {
 
   const handleAIDetector = async () => {
     try {
-      const response = await fetch('/api/grammar/ai_detector', {
+      // Use the full URL here
+      const response = await fetch(`${BASE_URL}/api/grammar/ai_detector`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text }),
@@ -318,7 +332,8 @@ function App() {
 
   const handleEssayHelper = async (type = 'structure') => {
     try {
-      const response = await fetch('/api/grammar/essay_helper', {
+      // Use the full URL here
+      const response = await fetch(`${BASE_URL}/api/grammar/essay_helper`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text, type }),
@@ -1095,4 +1110,3 @@ function App() {
 }
 
 export default App
-
