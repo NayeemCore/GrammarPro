@@ -1,0 +1,26 @@
+# Node.js / React frontend
+node_modules/
+dist/
+build/
+.vite/
+*.log
+
+# Python backend
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+env/
+venv/
+*.sqlite3
+*.db
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Environment variables
+.env
+.env.local
