@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 // import './App.css' // This line was causing the error and has been removed.
 
-// IMPORTANT: Define the base URL for your backend on Render
+// IMPORTANT: Using a hardcoded URL to avoid 'process is not defined' error
 const BASE_URL = 'https://grammarpro.onrender.com';
 
 const Button = ({ children, onClick, disabled, style, className }) => (
