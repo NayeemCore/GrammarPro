@@ -1,0 +1,24 @@
+.error-highlight {
+  border-bottom: 2px solid #ef4444;
+  cursor: pointer;
+  background-color: rgba(239, 68, 68, 0.1);
+  text-decoration: none;
+}
+
+.error-highlight:hover {
+  background-color: rgba(239, 68, 68, 0.2);
+}
+
+.error-highlight.correctness {
+  border-bottom-color: #ef4444;
+}
+
+.error-highlight.engagement {
+  border-bottom-color: #f97316;
+  background-color: rgba(249, 115, 22, 0.1);
+}
+
+.error-highlight.engagement:hover {
+  background-color: rgba(249, 115, 22, 0.2);
+}
+
